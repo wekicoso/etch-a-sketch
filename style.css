@@ -8,7 +8,7 @@
 #container > div.row {
     display: flex;
     flex-direction: row;
-    background-color: rgb(94, 157, 252);
+    background-color: rgb(65, 90, 128);
 }
 
 #container > div.row > div.column {

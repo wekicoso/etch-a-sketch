@@ -8,9 +8,14 @@ function createGrid(element) {
             const div = document.createElement("div");
             div.classList.add("column");
             row.appendChild(div);
+            row.addEventListener('mouseover', hover);
         }
         element.appendChild(row);
     }
+}
+
+function hover(event) {
+    event.target.style.backgroundColor = 'rgb(' + 135 + ',' + 179 + ',' + 245 + ')';
 }
 
 createGrid(container);
