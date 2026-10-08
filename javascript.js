@@ -18,14 +18,14 @@ function createGrid(gridSize) {
         container.appendChild(row);
     }
 
-    let opacity = 0;
+    
 
     // function for eventListener
     function hover(event) {
+        
         if (event.target.classList.contains('column')) {
             event.target.classList.add("highlight");
-            event.target.setAttribute("style", `opacity: ${opacity};`);
-            opacity += 0.1;
+            event.target.style.opacity = +event.target.style.opacity + 0.1;
         }
     }
 
