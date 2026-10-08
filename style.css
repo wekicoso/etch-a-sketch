@@ -21,7 +21,7 @@ body {
     flex: auto;
     display: flex;
     flex-direction: row;
-    background-color: rgb(65, 90, 128);
+    background-color: #DCE2F0;
 }
 
 #container>div.row>div.column {
@@ -30,7 +30,7 @@ body {
 }
 
 .highlight {
-    background-color: rgb(135, 179, 245);
+    background-color: #50586C
 }
 
 #options {
