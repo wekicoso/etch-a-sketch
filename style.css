@@ -1,31 +1,60 @@
 body {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 95vh;
+    width: 90wh;
 }
 
 #container {
-    width: 960px;
-    height: 90vh;
-    min-height: 220px;
+    max-width: 960px;
     max-height: 960px;
-    margin: 20px 0;
-    display:flex;
+    height: 100%;
+    width: 100%;
+    display: flex;
     flex-direction: column;
 }
 
-#container > div.row {
-    flex: 1;
+#container>div.row {
+    flex: auto;
     display: flex;
     flex-direction: row;
     background-color: rgb(65, 90, 128);
 }
 
-#container > div.row > div.column {
-    flex: 1;
+#container>div.row>div.column {
+    flex: auto;
     border: 1px solid black;
 }
 
 .highlight {
     background-color: rgb(135, 179, 245);
+}
+
+#options {
+    display: flex;
+    max-width: 960px;
+    width: 100%;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    margin: 20px 0 0 0;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.input {
+    height: 80%;
+    width: auto;
+    font-size: medium;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    height: 95%;
+    padding: 0 15px;
+    box-shadow: 2px 2px 2px gray;
 }
