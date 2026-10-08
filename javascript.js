@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 
+// Creating grid and adding clases to fields
 function createGrid(element) {
     for (let i = 0; i < 16; i++) {
         const row = document.createElement("div");
@@ -8,14 +9,19 @@ function createGrid(element) {
             const div = document.createElement("div");
             div.classList.add("column");
             row.appendChild(div);
-            row.addEventListener('mouseover', hover);
         }
         element.appendChild(row);
     }
 }
 
+// function for eventListener
 function hover(event) {
-    event.target.style.backgroundColor = 'rgb(' + 135 + ',' + 179 + ',' + 245 + ')';
+    if (event.target.classList.contains('column')) {
+           event.target.classList.add('highlight');
+    }
 }
 
 createGrid(container);
+
+// Event delegation - by using event.target we are highlighting targeted field
+container.addEventListener('mouseover', hover);
