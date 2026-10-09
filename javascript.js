@@ -1,7 +1,13 @@
 const container = document.querySelector("#container");
 const btnSubmit = document.querySelector("button");
 const inputText = document.querySelector(".input");
+const form = document.querySelectorAll("form input");
+
+let choosenInput = 16;
+let radioOption = "solid";
+
 inputText.placeholder = "max 100";
+inputText.select();
 
 // Creating grid and adding clases to fields
 function createGrid(gridSize) {
@@ -17,21 +23,32 @@ function createGrid(gridSize) {
         }
         container.appendChild(row);
     }
+}
 
-    
-
-    // function for eventListener
-    function hover(event) {
-        
-        if (event.target.classList.contains('column')) {
-            event.target.classList.add("highlight");
-            event.target.style.opacity = +event.target.style.opacity + 0.1;
+// function for event listener, looking for radio button selected
+function hover(event) {
+    if (event.target.classList.contains('column')) {
+        event.target.classList.add("highlight");
+        switch (radioOption) {
+            case "solid":
+                break;
+            case "darkening":
+                console.log("Pre:", event.target.style.opacity);
+                event.target.style.opacity = String(Number(event.target.style.opacity) + 0.1);
+                break;
+            case "random":
+                event.target.style.opacity = 1;
+                function randomColor () {
+                    return Math.floor(Math.random() * 256);
+                }
+                event.target.style.backgroundColor = `rgb(${randomColor()} ${randomColor()} ${randomColor()})`;
+                break;
         }
     }
-
-    // Event delegation - by using event.target we are highlighting targeted field
-    container.addEventListener('mouseover', hover);
 }
+
+// Event delegation - by using event.target we are highlighting targeted field
+container.addEventListener('mouseover', hover);
 
 function inputIsValid(text) {
     if (Number.isInteger(+text)) {
@@ -52,13 +69,21 @@ btnSubmit.addEventListener('click', (e) => {
     const input = inputText.value;
 
     if (inputIsValid(input)) {
-        createGrid(input);
+        choosenInput = +input;
+        createGrid(choosenInput);
     } else {
         inputText.value = "";
-        inputText.placeholder = "max 100";
     }
 
     inputText.select();
 });
 
-createGrid(16);
+document.querySelector("#options > form").addEventListener('change', (e) => {
+    if (e.target.type == 'radio') {
+        radioOption = e.target.value;
+        createGrid(choosenInput);
+        inputText.select();
+    }
+});
+
+createGrid(choosenInput);

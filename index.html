@@ -11,9 +11,20 @@
 
 <body>
     <div id="options">
-        <label for="text">size: </label>
-        <input class="input" type="text">
-        <button>submit</button>
+        <div>
+            <label for="text">size: </label>
+            <input class="input" type="text">
+            <button>submit</button>
+        </div>
+        <form name="form">
+            <label for="form" id="label">style: </label>
+            <input type="radio" name="chooseLine" id="solid" value="solid" checked>
+            <label for="solid">solid</label>
+            <input type="radio" name="chooseLine" id="darkening" value="darkening">
+            <label for="darkening">darkening</label>
+            <input type="radio" name="chooseLine" id="random" value="random">
+            <label for="random">random</label>
+        </form>
     </div>
 
     <div id="container">
